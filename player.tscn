@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfqa7pslfl5dc"]
+
+[ext_resource type="Texture2D" uid="uid://84pklbth8ghh" path="res://art/ship5.png" id="1_edqbs"]
+[ext_resource type="Script" path="res://player.gd" id="1_mn47o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyyo7"]
+size = Vector2(235, 96)
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_mn47o")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_edqbs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_xyyo7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
