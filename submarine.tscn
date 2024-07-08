@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://ucb88u7pwmjl"]
+[gd_scene load_steps=4 format=3 uid="uid://ucb88u7pwmjl"]
 
+[ext_resource type="Script" path="res://submarine.gd" id="1_5vs6m"]
 [ext_resource type="Texture2D" uid="uid://k0ewg5umn2lu" path="res://art/ship8.png" id="1_8b5n1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lub75"]
 size = Vector2(315, 49)
 
 [node name="Submarine" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_5vs6m")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_8b5n1")
@@ -13,3 +17,7 @@ texture = ExtResource("1_8b5n1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, 14.5)
 shape = SubResource("RectangleShape2D_lub75")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
