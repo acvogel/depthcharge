@@ -20,7 +20,7 @@ func _process(delta):
 	position = position.clamp(Vector2.ZERO, screen_size)
 
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	hide()
 	player_hit.emit()
 	$CollisionShape2D.set_deferred("disabled", true)
