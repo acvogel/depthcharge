@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfqa7pslfl5dc"]
+[gd_scene load_steps=5 format=3 uid="uid://bfqa7pslfl5dc"]
 
 [ext_resource type="Texture2D" uid="uid://84pklbth8ghh" path="res://art/ship5.png" id="1_edqbs"]
 [ext_resource type="Script" path="res://player.gd" id="1_mn47o"]
+[ext_resource type="PackedScene" uid="uid://bip117mhlmh8j" path="res://depth_charge.tscn" id="2_pycud"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xyyo7"]
 size = Vector2(235, 96)
 
 [node name="Player" type="Area2D"]
+position = Vector2(0, -1)
+collision_mask = 0
 script = ExtResource("1_mn47o")
+depth_charge_scene = ExtResource("2_pycud")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

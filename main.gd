@@ -15,7 +15,7 @@ func _process(_delta):
 func _on_submarine_timer_timeout():
 	var submarine = submarine_scene.instantiate()
 	var side = randi() % 2 # 0 left, 1 right
-	var depths = [100.0, 300.0, 500.0]
+	var depths = [300.0, 500.0, 700.0]
 	var depth = depths[randi() % depths.size()]
 	var x = 0
 	if side == 1:
