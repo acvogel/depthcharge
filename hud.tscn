@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6r6urfob03rs"]
+[gd_scene load_steps=6 format=3 uid="uid://c6r6urfob03rs"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_wudeh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ogi82"]
 font_size = 45
+
+[sub_resource type="LabelSettings" id="LabelSettings_frw81"]
+font_size = 45
+
+[sub_resource type="LabelSettings" id="LabelSettings_i5ouj"]
+font_size = 42
+
+[sub_resource type="LabelSettings" id="LabelSettings_hxg40"]
+font_size = 42
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_wudeh")
@@ -12,9 +21,30 @@ script = ExtResource("1_wudeh")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -512.0
+offset_right = -422.0
+offset_bottom = 63.0
 grow_horizontal = 2
 text = "0:00"
 label_settings = SubResource("LabelSettings_ogi82")
+
+[node name="StaticTimerLabel" type="Label" parent="."]
+offset_left = 192.0
+offset_right = 298.0
+offset_bottom = 63.0
+text = "TIME"
+label_settings = SubResource("LabelSettings_frw81")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 992.0
+offset_right = 1088.0
+offset_bottom = 64.0
+text = "0000"
+label_settings = SubResource("LabelSettings_i5ouj")
+
+[node name="StaticScoreLabel" type="Label" parent="."]
+offset_left = 824.0
+offset_right = 957.0
+offset_bottom = 64.0
+text = "SCORE"
+label_settings = SubResource("LabelSettings_hxg40")

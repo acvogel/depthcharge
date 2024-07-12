@@ -12,6 +12,7 @@ func new_game():
 func _process(delta):
 	game_timer += delta
 	$HUD.set_game_timer(game_timer)
+	$HUD.set_score($Player.score)
 
 func _on_submarine_timer_timeout():
 	var submarine = submarine_scene.instantiate()
@@ -28,4 +29,5 @@ func _on_submarine_timer_timeout():
 	submarine.linear_velocity = Vector2(200.0, 0.0)
 	if side == 1:
 		submarine.linear_velocity = -1.0 * submarine.linear_velocity
+	submarine.score = depth
 	add_child(submarine)

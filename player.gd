@@ -5,6 +5,7 @@ signal player_hit
 @export var speed = 400 # pixels / sec
 var screen_size
 @export var depth_charge_scene: PackedScene
+var score = 0
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -27,15 +28,18 @@ func fire_depth_charge():
 	depth_charge.position = Vector2(60.0, -10.0) # relative to parent (player)
 	depth_charge.rotation = PI/4
 	depth_charge.linear_velocity = Vector2(200.0, -200.0)
+	depth_charge.depth_charge_hit.connect(_on_depth_charge_hit)
 	add_child(depth_charge)
 
 func _on_body_entered(_body):
 	hide()
 	player_hit.emit()
 	$CollisionShape2D.set_deferred("disabled", true)
-	
+
 func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
-	
+
+func _on_depth_charge_hit(submarine_score):
+	score += submarine_score

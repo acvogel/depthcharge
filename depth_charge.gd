@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-signal depth_charge_hit
+signal depth_charge_hit(score)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,11 +11,10 @@ func _ready():
 func _process(_delta):
 	pass
 
-
 func _on_body_entered(body):
 	# despawn depth charge (todo explosion)
 	hide()
-	depth_charge_hit.emit()
+	depth_charge_hit.emit(body.score)
 	$CollisionShape2D.set_deferred("disabled", true)
 	
 	# despawn submarine (todo explosion animation)
