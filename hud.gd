@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,9 +8,7 @@ func _ready():
 func _process(_delta):
 	pass
 
-func _on_visible_on_screen_notifier_2d_screen_exited():
-	queue_free()
-
-func despawn():
-	hide()
-	$CollisionShape2D.set_deferred("disabled", true)
+func set_game_timer(millis):
+	var seconds = floori(millis)
+	var minutes = floori(seconds / 60.0)
+	$GameTimerLabel.text = str("%02d:%02d" % [minutes, seconds % 60])

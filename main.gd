@@ -1,6 +1,7 @@
 extends Node
 
 @export var submarine_scene: PackedScene
+var game_timer = 0.0
 
 func _ready():
 	new_game()
@@ -8,9 +9,9 @@ func _ready():
 func new_game():
 	$SubmarineTimer.start()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+func _process(delta):
+	game_timer += delta
+	$HUD.set_game_timer(game_timer)
 
 func _on_submarine_timer_timeout():
 	var submarine = submarine_scene.instantiate()
