@@ -31,11 +31,11 @@ func fire_depth_charge_right():
 func fire_depth_charge_left():
 	fire_depth_charge(Vector2(-60.0, -10.0), PI / 4.0, Vector2(-200.0, -200.0))
 
-func fire_depth_charge(position, rotation, linear_velocity):
+func fire_depth_charge(launch_position, launch_rotation, launch_linear_velocity):
 	var depth_charge = depth_charge_scene.instantiate()
-	depth_charge.position = position # relative to parent (player)
-	depth_charge.rotation = rotation
-	depth_charge.linear_velocity = linear_velocity
+	depth_charge.position = launch_position # relative to parent (player)
+	depth_charge.rotation = launch_rotation
+	depth_charge.linear_velocity = launch_linear_velocity
 	depth_charge.depth_charge_hit.connect(_on_depth_charge_hit)
 	add_child(depth_charge)
 
