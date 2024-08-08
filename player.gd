@@ -20,14 +20,22 @@ func _process(delta):
 		velocity = velocity.normalized() * speed
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
-	if Input.is_action_just_pressed("spacebar"):
-		fire_depth_charge()
+	if Input.is_action_just_pressed("fire_depth_charge_right"):
+		fire_depth_charge_right()
+	if Input.is_action_just_pressed("fire_depth_charge_left"):
+		fire_depth_charge_left()
 
-func fire_depth_charge():
+func fire_depth_charge_right():
+	fire_depth_charge(Vector2(60.0, -10.0), PI / 4.0, Vector2(200.0, -200.0))
+
+func fire_depth_charge_left():
+	fire_depth_charge(Vector2(-60.0, -10.0), PI / 4.0, Vector2(-200.0, -200.0))
+
+func fire_depth_charge(position, rotation, linear_velocity):
 	var depth_charge = depth_charge_scene.instantiate()
-	depth_charge.position = Vector2(60.0, -10.0) # relative to parent (player)
-	depth_charge.rotation = PI / 4.0
-	depth_charge.linear_velocity = Vector2(200.0, -200.0)
+	depth_charge.position = position # relative to parent (player)
+	depth_charge.rotation = rotation
+	depth_charge.linear_velocity = linear_velocity
 	depth_charge.depth_charge_hit.connect(_on_depth_charge_hit)
 	add_child(depth_charge)
 
