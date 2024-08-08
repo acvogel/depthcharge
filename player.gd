@@ -26,7 +26,7 @@ func _process(delta):
 func fire_depth_charge():
 	var depth_charge = depth_charge_scene.instantiate()
 	depth_charge.position = Vector2(60.0, -10.0) # relative to parent (player)
-	depth_charge.rotation = PI/4
+	depth_charge.rotation = PI / 4.0
 	depth_charge.linear_velocity = Vector2(200.0, -200.0)
 	depth_charge.depth_charge_hit.connect(_on_depth_charge_hit)
 	add_child(depth_charge)

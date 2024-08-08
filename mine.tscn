@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl8lmjxavsc6m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l40vw"]
+size = Vector2(27, 26)
+
+[node name="Mine" type="RigidBody2D"]
+gravity_scale = -1.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(14.5, 14)
+shape = SubResource("RectangleShape2D_l40vw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 28.0
+offset_bottom = 27.0

@@ -1,7 +1,7 @@
 extends Node
 
 @export var submarine_scene: PackedScene
-var game_timer = 0.0
+var game_timer = 0.0 # sec
 
 func _ready():
 	new_game()
