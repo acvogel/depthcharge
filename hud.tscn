@@ -54,9 +54,9 @@ label_settings = SubResource("LabelSettings_hxg40")
 
 [node name="GameOverLabel" type="Label" parent="."]
 visible = false
-offset_left = 376.0
+offset_left = 363.0
 offset_top = 224.0
-offset_right = 789.0
+offset_right = 776.0
 offset_bottom = 323.0
 text = "GAME OVER"
 label_settings = SubResource("LabelSettings_r5qu2")

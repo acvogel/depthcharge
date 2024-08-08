@@ -20,7 +20,6 @@ func end_game():
 	get_tree().call_group("mines", "queue_free")
 	get_tree().call_group("depth_charges", "queue_free")
 	$SubmarineTimer.stop()
-	# smells, add handler code to $HUD itself
 	$HUD.get_node("GameOverLabel").visible = true
 
 func _process(delta):
