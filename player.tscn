@@ -9,7 +9,7 @@ size = Vector2(235, 96)
 
 [node name="Player" type="Area2D"]
 position = Vector2(0, -1)
-collision_mask = 0
+collision_mask = 8
 script = ExtResource("1_mn47o")
 depth_charge_scene = ExtResource("2_pycud")
 metadata/_edit_group_ = true

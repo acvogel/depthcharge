@@ -41,6 +41,7 @@ func fire_depth_charge(position, rotation, linear_velocity):
 
 func _on_body_entered(_body):
 	hide()
+	_body.hide()
 	player_hit.emit()
 	$CollisionShape2D.set_deferred("disabled", true)
 

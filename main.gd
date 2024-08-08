@@ -9,6 +9,12 @@ func _ready():
 func new_game():
 	$SubmarineTimer.start()
 
+func end_game():
+	get_tree().call_group("submarines", "queue_free")
+	get_tree().call_group("mines", "queue_free")
+	get_tree().call_group("depth_charges", "queue_free")
+	$SubmarineTimer.stop()
+
 func _process(delta):
 	game_timer += delta
 	$HUD.set_game_timer(game_timer)
@@ -31,3 +37,6 @@ func _on_submarine_timer_timeout():
 		submarine.linear_velocity = -1.0 * submarine.linear_velocity
 	submarine.score = depth
 	add_child(submarine)
+
+func _on_player_player_hit():
+	end_game()
