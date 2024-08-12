@@ -10,11 +10,11 @@ var player_starting_position = Vector2(563.0, 85.0)
 
 func _ready():
 	$IntroHUD.show()
-	$HUD.hide()
 	$SubmarineTimer.stop()
 
 func new_game():
 	$Player.start(player_starting_position)
+	despawn_non_players()
 	$SubmarineTimer.start(0.0)
 	game_timer = 0.0
 	$Player.score = 0
@@ -25,13 +25,16 @@ func new_game():
 
 func end_game():
 	game_state = GameState.GAME_OVER
-	get_tree().call_group("submarines", "queue_free")
-	get_tree().call_group("mines", "queue_free")
-	get_tree().call_group("depth_charges", "queue_free")
+	despawn_non_players()
 	$SubmarineTimer.stop()
 	$IntroHUD.get_node("GameOverLabel").visible = true
 	$IntroHUD.get_node("TitleLabel").visible = false
 	$IntroHUD.show()
+
+func despawn_non_players():
+	get_tree().call_group("submarines", "queue_free")
+	get_tree().call_group("mines", "queue_free")
+	get_tree().call_group("depth_charges", "queue_free")
 
 func _process(delta):
 	if game_state == GameState.INTRO || game_state == GameState.GAME_OVER:
