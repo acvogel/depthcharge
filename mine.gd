@@ -1,7 +1,7 @@
 extends RigidBody2D
 
-signal depth_charge_hit(score)
-signal depth_charge_miss
+signal mine_miss
+# wait how is mine hit working??
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,14 +9,10 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(delta):
 	pass
 
-func _on_body_entered(body):
-	# despawn depth charge (todo explosion)
+func handle_miss():
 	hide()
-	depth_charge_hit.emit(body.score)
+	mine_miss.emit()
 	$CollisionShape2D.set_deferred("disabled", true)
-	
-	# despawn submarine (todo explosion animation)
-	body.despawn()

@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfkixxlkpktir"]
+[gd_scene load_steps=3 format=3 uid="uid://bfkixxlkpktir"]
+
+[ext_resource type="Script" path="res://water.gd" id="1_7wmds"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v38wx"]
 size = Vector2(1153.25, 520)
@@ -6,7 +8,8 @@ size = Vector2(1153.25, 520)
 [node name="Water" type="Area2D"]
 position = Vector2(3, 11)
 collision_layer = 16
-collision_mask = 8
+collision_mask = 14
+script = ExtResource("1_7wmds")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(572.375, 377)
@@ -18,3 +21,5 @@ offset_top = 117.0
 offset_right = 1149.0
 offset_bottom = 637.0
 color = Color(0.054902, 0.305882, 1, 1)
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

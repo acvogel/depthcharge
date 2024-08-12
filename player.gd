@@ -39,9 +39,9 @@ func fire_depth_charge(launch_position, launch_rotation, launch_linear_velocity)
 	depth_charge.depth_charge_hit.connect(_on_depth_charge_hit)
 	add_child(depth_charge)
 
-func _on_body_entered(_body):
+func _on_body_entered(body):
 	hide()
-	_body.hide()
+	body.hide()
 	player_hit.emit()
 	$CollisionShape2D.set_deferred("disabled", true)
 
