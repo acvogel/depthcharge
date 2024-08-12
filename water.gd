@@ -7,14 +7,10 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 # fish out of water
 func _on_body_exited(body):
-	#print("body_exited:")
-	#print(body)
 	if body.is_in_group("mines"):
-		print("Mine miss!")
 		body.handle_miss()
-		
