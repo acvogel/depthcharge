@@ -29,8 +29,6 @@ func end_game():
 	get_tree().call_group("mines", "queue_free")
 	get_tree().call_group("depth_charges", "queue_free")
 	$SubmarineTimer.stop()
-	#game_timer = 0.0
-	#score = 0.0
 	$IntroHUD.get_node("GameOverLabel").visible = true
 	$IntroHUD.get_node("TitleLabel").visible = false
 	$IntroHUD.show()
