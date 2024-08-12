@@ -22,4 +22,5 @@ func despawn():
 func spawn_mine():
 	var mine = mine_scene.instantiate()
 	mine.position = Vector2.ZERO
+	mine.linear_velocity = Vector2(0.0, -150.0)
 	add_child(mine)

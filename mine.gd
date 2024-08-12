@@ -1,7 +1,6 @@
 extends RigidBody2D
 
 signal mine_miss
-# wait how is mine hit working??
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
