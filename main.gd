@@ -4,15 +4,24 @@ extends Node
 var game_timer = 0.0 # sec
 
 enum GameState {INTRO, GAME, GAME_OVER}
-var game_state = GameState.INTRO
+@export var game_state = GameState.INTRO
+
+var player_starting_position = Vector2(563.0, 85.0)
 
 func _ready():
-	new_game()
+	$IntroHUD.show()
+	$HUD.hide()
+	$SubmarineTimer.stop()
 
 func new_game():
+	$Player.start(player_starting_position)
 	$SubmarineTimer.start(0.0)
+	game_timer = 0.0
+	$Player.score = 0
 	game_state = GameState.GAME
-	$HUD.get_node("GameOverLabel").visible = false
+	$HUD.show()
+	$IntroHUD.get_node("GameOverLabel").visible = false
+	$IntroHUD.hide()
 
 func end_game():
 	game_state = GameState.GAME_OVER
@@ -20,9 +29,16 @@ func end_game():
 	get_tree().call_group("mines", "queue_free")
 	get_tree().call_group("depth_charges", "queue_free")
 	$SubmarineTimer.stop()
-	$HUD.get_node("GameOverLabel").visible = true
+	#game_timer = 0.0
+	#score = 0.0
+	$IntroHUD.get_node("GameOverLabel").visible = true
+	$IntroHUD.get_node("TitleLabel").visible = false
+	$IntroHUD.show()
 
 func _process(delta):
+	if game_state == GameState.INTRO || game_state == GameState.GAME_OVER:
+		if Input.is_action_pressed("start_game"):
+			new_game()
 	if game_state == GameState.GAME:
 		game_timer += delta
 		$HUD.set_game_timer(game_timer)

@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcmcvu6ghj7d1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ytoso"]
+font_size = 100
+shadow_size = 20
+shadow_color = Color(0.613637, 0.0150581, 0.514377, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qrubr"]
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_advk6"]
+font_size = 72
+
+[node name="IntroHUD" type="CanvasLayer"]
+
+[node name="TitleLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -376.0
+offset_top = -149.5
+offset_right = 376.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DEPTH CHARGE"
+label_settings = SubResource("LabelSettings_ytoso")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -315.5
+offset_top = 70.5
+offset_right = 315.5
+offset_bottom = 153.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press START or ENTER"
+label_settings = SubResource("LabelSettings_qrubr")
+
+[node name="GameOverLabel" type="Label" parent="."]
+visible = false
+offset_left = 363.0
+offset_top = 224.0
+offset_right = 776.0
+offset_bottom = 323.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_advk6")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsbmn6p2w3pme"]
+[gd_scene load_steps=7 format=3 uid="uid://dsbmn6p2w3pme"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_bnyrw"]
 [ext_resource type="PackedScene" uid="uid://bfqa7pslfl5dc" path="res://player.tscn" id="2_bl342"]
 [ext_resource type="PackedScene" uid="uid://ucb88u7pwmjl" path="res://submarine.tscn" id="2_lwkck"]
 [ext_resource type="PackedScene" uid="uid://bfkixxlkpktir" path="res://water.tscn" id="3_rfr4n"]
 [ext_resource type="PackedScene" uid="uid://c6r6urfob03rs" path="res://hud.tscn" id="5_usxr1"]
+[ext_resource type="PackedScene" uid="uid://bcmcvu6ghj7d1" path="res://intro_hud.tscn" id="6_2jcjx"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_bnyrw")
@@ -20,6 +21,8 @@ position = Vector2(563, 85)
 
 [node name="SubmarineTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="IntroHUD" parent="." instance=ExtResource("6_2jcjx")]
 
 [connection signal="player_hit" from="Player" to="." method="_on_player_player_hit"]
 [connection signal="timeout" from="SubmarineTimer" to="." method="_on_submarine_timer_timeout"]
