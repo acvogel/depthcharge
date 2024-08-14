@@ -1,10 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl8lmjxavsc6m"]
+[gd_scene load_steps=12 format=3 uid="uid://dl8lmjxavsc6m"]
 
 [ext_resource type="Script" path="res://mine.gd" id="1_wknjl"]
 [ext_resource type="Texture2D" uid="uid://fto2jbudcadj" path="res://art/boss-star-badge-achievement-512.webp" id="2_c77u6"]
+[ext_resource type="Texture2D" uid="uid://by4plhl5rr241" path="res://art/mine_explosion_sheet.png" id="3_5jnot"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l40vw"]
 size = Vector2(27, 2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x14iy"]
+atlas = ExtResource("3_5jnot")
+region = Rect2(0, 0, 1930, 2250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ds6pt"]
+atlas = ExtResource("3_5jnot")
+region = Rect2(1930, 0, 1930, 2250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q78h3"]
+atlas = ExtResource("3_5jnot")
+region = Rect2(3860, 0, 1930, 2250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v53si"]
+atlas = ExtResource("3_5jnot")
+region = Rect2(0, 2250, 1930, 2250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_de37c"]
+atlas = ExtResource("3_5jnot")
+region = Rect2(1930, 2250, 1930, 2250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0ma6"]
+atlas = ExtResource("3_5jnot")
+region = Rect2(3860, 2250, 1930, 2250)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_idpnl"]
 animations = [{
@@ -14,7 +39,30 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x14iy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ds6pt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q78h3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v53si")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_de37c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0ma6")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 10.0
 }]
 
 [node name="Mine" type="RigidBody2D" groups=["mines"]]
@@ -30,3 +78,5 @@ shape = SubResource("RectangleShape2D_l40vw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_idpnl")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
