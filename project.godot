@@ -47,3 +47,11 @@ start_game={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":6,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="submarine"
+2d_physics/layer_3="depth_charge"
+2d_physics/layer_4="mine"
+2d_physics/layer_5="water"

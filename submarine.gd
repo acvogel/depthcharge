@@ -24,3 +24,13 @@ func spawn_mine():
 	mine.position = Vector2.ZERO
 	mine.linear_velocity = Vector2(0.0, -150.0)
 	add_child(mine)
+
+# run the death automation, then despawn after DeathTimer
+func death():
+	linear_velocity = Vector2(0.0, 50.0)
+	$DeathTimer.start()
+	$AnimatedSprite2D.play("death")
+	$CollisionShape2D.set_deferred("disabled", true)
+
+func _on_death_timer_timeout() -> void:
+	queue_free()

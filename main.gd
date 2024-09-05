@@ -55,8 +55,8 @@ func _on_submarine_timer_timeout():
 		x = $Player.screen_size.x
 	submarine.position = Vector2(x, depth)
 	submarine.rotation = 0.0
-	if side == 1:
-		submarine.get_node("Sprite2D").flip_h = true
+	if side == 0:
+		submarine.get_node("AnimatedSprite2D").flip_h = true
 	submarine.linear_velocity = Vector2(200.0, 0.0)
 	if side == 1:
 		submarine.linear_velocity = -1.0 * submarine.linear_velocity
